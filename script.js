@@ -31,18 +31,26 @@ document.querySelectorAll("nav a").forEach(link => {
 });
 
 // Split hero name into letters for the 3D fly-in
+let letterCount = 0;
 function split(node) {
     [...node.childNodes].forEach(n => {
         if (n.nodeType === 3) {
             const t = n.textContent.trim();
             if (!t) return;
             const f = document.createDocumentFragment();
-            [...t].forEach((c, i) => {
-                const s = document.createElement("i");
-                s.className = "ch";
-                s.textContent = c === " " ? "\u00A0" : c;
-                s.style.setProperty("--i", i);
-                f.append(s);
+            t.split(/\s+/).forEach((word, wi, arr) => {
+                // keep every word in one piece so it never breaks mid-word
+                const w = document.createElement("span");
+                w.className = "word";
+                [...word].forEach(c => {
+                    const s = document.createElement("i");
+                    s.className = "ch";
+                    s.textContent = c;
+                    s.style.setProperty("--i", letterCount++);
+                    w.append(s);
+                });
+                f.append(w);
+                if (wi < arr.length - 1) f.append(" ");
             });
             n.replaceWith(f);
         } else split(n);
@@ -95,7 +103,11 @@ window.addEventListener("scroll", () => {
 const cv = document.getElementById("bg"), ctx = cv.getContext("2d");
 let W, H, dots = [], rgb = "25,227,177";
 const mouse = { x: -999, y: -999 };
-function readDot() { rgb = getComputedStyle(root).getPropertyValue("--dot").trim() || rgb; }
+function readDot() {
+    // particle colour follows the current accent
+    const hex = getComputedStyle(root).getPropertyValue("--a1").trim().replace("#", "");
+    if (hex.length === 6) rgb = [0, 2, 4].map(i => parseInt(hex.slice(i, i + 2), 16)).join(",");
+}
 function resize() {
     W = cv.width = innerWidth; H = cv.height = innerHeight;
     dots = Array.from({ length: innerWidth < 700 ? 32 : 70 }, () => ({
@@ -125,6 +137,17 @@ function draw() {
 }
 readDot(); resize(); draw();
 addEventListener("resize", resize);
+
+// Accent colour picker (remembered, works in dark and light mode)
+const swatches = $$(".swatches button");
+function setAccent(a) {
+    root.dataset.accent = a;
+    try { localStorage.setItem("accent", a); } catch (e) {}
+    swatches.forEach(b => b.classList.toggle("on", b.dataset.accent === a));
+    readDot();
+}
+swatches.forEach(b => b.addEventListener("click", () => setAccent(b.dataset.accent)));
+setAccent(root.dataset.accent || "lime");
 
 if (fine) {
     addEventListener("mousemove", e => {
