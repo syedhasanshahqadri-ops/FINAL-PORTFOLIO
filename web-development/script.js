@@ -87,3 +87,101 @@ if (fine) {
         el.addEventListener("mouseleave", () => el.style.transform = "");
     });
 }
+
+
+/* ===== accent colour picker ===== */
+const root = document.documentElement;
+const accentWrap = document.querySelector(".accent-wrap");
+const swatches = [...document.querySelectorAll(".accent-pop button")];
+function setAccent(a) {
+    root.dataset.accent = a;
+    try { localStorage.setItem("accent", a); } catch (e) {}
+    swatches.forEach(b => b.classList.toggle("on", b.dataset.accent === a));
+}
+swatches.forEach(b => b.addEventListener("click", () => setAccent(b.dataset.accent)));
+document.getElementById("accentBtn").addEventListener("click", e => { e.stopPropagation(); accentWrap.classList.toggle("open"); });
+document.addEventListener("click", e => { if (!accentWrap.contains(e.target)) accentWrap.classList.remove("open"); });
+setAccent(root.dataset.accent || "aurora");
+
+
+/* ===== projects: favourites, search and filters ===== */
+const cards = [...document.querySelectorAll(".project-card")];
+const chips = [...document.querySelectorAll(".chip")];
+const searchEl = document.getElementById("search");
+const infoEl = document.getElementById("resultInfo");
+const emptyEl = document.getElementById("empty");
+let favs = [], filter = "all", query = "";
+try { favs = JSON.parse(localStorage.getItem("favs") || "[]"); } catch (e) {}
+
+cards.forEach(card => {
+    const title = card.querySelector("h2").textContent.trim();
+    const type = card.querySelector(".project-type").textContent;
+    card.dataset.cat = /JAVASCRIPT/i.test(type) ? "js" : "web";
+    card.dataset.text = (title + " " + card.querySelector("p").textContent + " " + type).toLowerCase();
+    card._title = title;
+    const fav = document.createElement("button");
+    fav.className = "fav"; fav.type = "button";
+    fav.setAttribute("aria-label", "Save " + title + " to favorites");
+    fav.textContent = "♥";
+    fav.classList.toggle("on", favs.includes(title));
+    fav.addEventListener("click", e => {
+        e.preventDefault(); e.stopPropagation();
+        const on = !fav.classList.contains("on");
+        fav.classList.toggle("on", on);
+        favs = on ? [...new Set([...favs, title])] : favs.filter(t => t !== title);
+        try { localStorage.setItem("favs", JSON.stringify(favs)); } catch (e) {}
+        applyFilters();
+    });
+    card.querySelector(".project-image").append(fav);
+});
+
+function matches(c) {
+    if (filter === "web" && c.dataset.cat !== "web") return false;
+    if (filter === "js" && c.dataset.cat !== "js") return false;
+    if (filter === "fav" && !favs.includes(c._title)) return false;
+    return !query || c.dataset.text.includes(query);
+}
+function applyFilters() {
+    let shown = 0;
+    cards.forEach(c => {
+        const show = matches(c), wasHidden = c.classList.contains("is-hidden");
+        c.classList.toggle("is-hidden", !show);
+        if (show) {
+            shown++;
+            if (wasHidden) { c.classList.remove("pop"); void c.offsetWidth; c.classList.add("pop"); }
+        }
+    });
+    const n = { all: cards.length, web: 0, js: 0, fav: 0 };
+    cards.forEach(c => { n[c.dataset.cat]++; if (favs.includes(c._title)) n.fav++; });
+    chips.forEach(ch => ch.querySelector("b").textContent = n[ch.dataset.filter]);
+    infoEl.textContent = `Showing ${shown} of ${cards.length} projects`;
+    emptyEl.hidden = shown > 0;
+    emptyEl.textContent = filter === "fav" && !query
+        ? "No favorites yet. Tap the ♥ on any project to save it here."
+        : "No projects match your search.";
+}
+chips.forEach(ch => ch.addEventListener("click", () => {
+    filter = ch.dataset.filter;
+    chips.forEach(c => c.classList.toggle("on", c === ch));
+    applyFilters();
+}));
+searchEl.addEventListener("input", () => { query = searchEl.value.trim().toLowerCase(); applyFilters(); });
+applyFilters();
+
+
+/* ===== back to top ===== */
+const toTop = document.getElementById("toTop");
+addEventListener("scroll", () => toTop.classList.toggle("show", scrollY > 700), { passive: true });
+toTop.addEventListener("click", () => scrollTo({ top: 0, behavior: "smooth" }));
+
+
+/* ===== keyboard shortcuts:  /  search   T  theme   Esc  clear ===== */
+addEventListener("keydown", e => {
+    const typing = /INPUT|TEXTAREA/.test(document.activeElement.tagName);
+    if (e.key === "/" && !typing) { e.preventDefault(); searchEl.focus(); }
+    else if (e.key === "Escape") {
+        accentWrap.classList.remove("open");
+        if (typing || query) { searchEl.value = ""; query = ""; applyFilters(); searchEl.blur(); }
+    }
+    else if ((e.key === "t" || e.key === "T") && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) themeBtn.click();
+});
