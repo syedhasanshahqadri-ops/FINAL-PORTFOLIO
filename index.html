@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(!t)t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.dataset.theme=t})()</script>
+    <script>(function(){var d=document.documentElement,t,a;try{t=localStorage.getItem("theme");a=localStorage.getItem("accent")}catch(e){}if(!t)t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";d.dataset.theme=t;d.dataset.accent=a||"lime"})()</script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -66,6 +66,13 @@
                     <div class="hero-buttons">
                         <a href="#work" class="btn primary-btn magnetic">Explore My Work <span>↗</span></a>
                         <a href="#contact" class="btn secondary-btn magnetic">Let's Connect</a>
+                    </div>
+                    <div class="swatches" role="group" aria-label="Pick an accent colour">
+                        <small>Accent</small>
+                        <button data-accent="lime" title="Lime" aria-label="Lime accent"></button>
+                        <button data-accent="ocean" title="Ocean" aria-label="Ocean accent"></button>
+                        <button data-accent="sunset" title="Sunset" aria-label="Sunset accent"></button>
+                        <button data-accent="violet" title="Violet" aria-label="Violet accent"></button>
                     </div>
                 </div>
 
