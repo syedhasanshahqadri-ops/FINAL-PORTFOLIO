@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
-    <script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(!t)t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.dataset.theme=t})()</script>
+    <script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(!t)t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.dataset.theme=t;var a;try{a=localStorage.getItem("accent")}catch(e){}document.documentElement.dataset.accent=a||"aurora"})()</script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,6 +24,15 @@
                 <div><strong>SYED HASAN</strong><small>WEB DEVELOPMENT</small></div>
             </a>
             <div class="nav-actions">
+                <div class="accent-wrap">
+                    <button class="accent-btn" id="accentBtn" aria-label="Pick accent colour" aria-haspopup="true"><i></i></button>
+                    <div class="accent-pop" role="group" aria-label="Accent colour">
+                        <button data-accent="aurora" title="Aurora" aria-label="Aurora accent"></button>
+                        <button data-accent="emerald" title="Emerald" aria-label="Emerald accent"></button>
+                        <button data-accent="sunset" title="Sunset" aria-label="Sunset accent"></button>
+                        <button data-accent="rose" title="Rose" aria-label="Rose accent"></button>
+                    </div>
+                </div>
                 <button class="theme-btn" id="themeBtn" aria-label="Switch dark / light mode"><span class="sun">☀</span><span class="moon">☾</span></button>
                 <a href="../index.html" class="back-link magnetic">← Back Home</a>
             </div>
@@ -64,6 +73,17 @@
 
         <section class="projects-section">
             <div class="container">
+                <div class="toolbar reveal">
+                    <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Search projects…  ( press / )" aria-label="Search projects" autocomplete="off"></label>
+                    <div class="chips" role="group" aria-label="Filter projects">
+                        <button class="chip on" data-filter="all">All <b>7</b></button>
+                        <button class="chip" data-filter="web">Websites <b>0</b></button>
+                        <button class="chip" data-filter="js">JavaScript <b>0</b></button>
+                        <button class="chip" data-filter="fav">♥ Favorites <b>0</b></button>
+                    </div>
+                </div>
+                <p class="result-info" id="resultInfo" aria-live="polite"></p>
+
                 <div class="projects-grid">
                 <article class="project-card reveal" data-tilt style="--h:47">
                     <div class="card-inner">
@@ -178,6 +198,7 @@
                 </article>
 
                 </div>
+                <div class="empty" id="empty" hidden></div>
             </div>
         </section>
     </main>
@@ -195,6 +216,8 @@
         </div>
         <div class="container copyright">© 2026 Syed Hasan Shah. All rights reserved.</div>
     </footer>
+
+    <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
     <script src="script.js"></script>
 </body>
