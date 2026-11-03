@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
     <script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(!t)t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.dataset.theme=t;var a;try{a=localStorage.getItem("accent")}catch(e){}document.documentElement.dataset.accent=a||"aurora"})()</script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* two-button project card (Clothing + Orders) */
+        .project-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}
+        .project-actions .project-btn{margin-top:0}
+        .project-btn.alt{background:color-mix(in srgb,var(--cyan) 10%,transparent);border:1px solid var(--cyan);color:var(--cyan);padding:12px 17px}
+        .project-btn.alt:hover{background:color-mix(in srgb,var(--cyan) 18%,transparent)}
+    </style>
 </head>
 <body>
     <div class="progress"></div>
@@ -47,7 +54,7 @@
                     <h1 class="reveal">My Web <span>Development Work</span></h1>
                     <p class="hero-text reveal">A collection of websites I've created using modern web development techniques, responsive layouts and creative visual design.</p>
                     <div class="stats reveal">
-                        <div><b data-count="7">0</b><small>Projects</small></div>
+                        <div><b data-count="10">0</b><small>Projects</small></div>
                         <div><b data-count="100" data-suffix="%">0</b><small>Responsive</small></div>
                         <div><b data-count="3" data-suffix="+">0</b><small>Roles</small></div>
                     </div>
@@ -76,7 +83,7 @@
                 <div class="toolbar reveal">
                     <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Search projects…  ( press / )" aria-label="Search projects" autocomplete="off"></label>
                     <div class="chips" role="group" aria-label="Filter projects">
-                        <button class="chip on" data-filter="all">All <b>7</b></button>
+                        <button class="chip on" data-filter="all">All <b>10</b></button>
                         <button class="chip" data-filter="web">Websites <b>0</b></button>
                         <button class="chip" data-filter="js">JavaScript <b>0</b></button>
                         <button class="chip" data-filter="fav">♥ Favorites <b>0</b></button>
@@ -193,6 +200,57 @@
                             <h2>Markly Marks Calculator</h2>
                             <p>An interactive marks calculator where you add subjects, move sliders and watch total marks and percentage update live.</p>
                             <a href="https://syedhasanshahqadri-ops.github.io/ULTIMATE-CALCULATER-2.0.1/" target="_blank" rel="noopener" class="project-btn magnetic">View Live Website <span>↗</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" data-tilt style="--h:16">
+                    <div class="card-inner">
+                        <div class="project-image">
+                            <img src="../images/clothing-web.jpg" alt="Hasan's Collection clothing website project" loading="lazy" onerror="this.style.display='none'">
+                            <span class="project-number">08</span>
+                            <div class="glare"></div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-type">WEB DESIGN / E-COMMERCE · 2 PARTS</span>
+                            <h2>Hasan's Collection</h2>
+                            <p>A clothing brand website for kameez shalwar with summer and winter collections, a cart and WhatsApp ordering, plus a separate orders panel to manage incoming orders.</p>
+                            <div class="project-actions">
+                                <a href="https://syedhasanshahqadri-ops.github.io/CLOTHING-WEB/" target="_blank" rel="noopener" class="project-btn magnetic">View Store <span>↗</span></a>
+                                <a href="https://syedhasanshahqadri-ops.github.io/hc-orders-x7k2/" target="_blank" rel="noopener" class="project-btn alt magnetic">Orders Panel <span>↗</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" data-tilt style="--h:63">
+                    <div class="card-inner">
+                        <div class="project-image">
+                            <img src="../images/weather-web.jpg" alt="Weather and currency dashboard project" loading="lazy" onerror="this.style.display='none'">
+                            <span class="project-number">09</span>
+                            <div class="glare"></div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-type">WEB APP / JAVASCRIPT</span>
+                            <h2>Weather &amp; Currency Dashboard</h2>
+                            <p>A live dashboard showing real-time weather and currency rates with city search, in a clean card-based interface with light and dark themes.</p>
+                            <a href="https://syedhasanshahqadri-ops.github.io/WEATHER-AND-CURRENCY-DASHBOARD/" target="_blank" rel="noopener" class="project-btn magnetic">View Live Website <span>↗</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card reveal" data-tilt style="--h:110">
+                    <div class="card-inner">
+                        <div class="project-image">
+                            <img src="../images/gym-web.jpg" alt="Gym website project" loading="lazy" onerror="this.style.display='none'">
+                            <span class="project-number">10</span>
+                            <div class="glare"></div>
+                        </div>
+                        <div class="project-content">
+                            <span class="project-type">WEB DESIGN / DEVELOPMENT</span>
+                            <h2>Gym Website</h2>
+                            <p>A premium fitness website with a bold visual style, handy gym tools, an exercise library and dark and light themes.</p>
+                            <a href="https://syedhasanshahqadri-ops.github.io/GYM-WEB/" target="_blank" rel="noopener" class="project-btn magnetic">View Live Website <span>↗</span></a>
                         </div>
                     </div>
                 </article>
