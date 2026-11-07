@@ -194,3 +194,20 @@ body{transition:background .5s,color .5s}
 .to-top:hover{scale:1.12}
 
 @media(max-width:520px){.logo div{display:none}.nav-actions{gap:9px}.toolbar{flex-direction:column;align-items:stretch}.search{max-width:none}}
+
+.stats{flex-wrap:wrap}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.tags span{font-size:10px;font-weight:700;letter-spacing:.4px;padding:5px 10px;border-radius:20px;border:1px solid var(--border);color:var(--muted);background:color-mix(in srgb,var(--cyan) 6%,transparent)}
+.badge{position:absolute;left:17px;bottom:17px;padding:6px 12px;border-radius:30px;font-size:10px;font-weight:800;letter-spacing:1px;color:#fff;background:linear-gradient(120deg,var(--blue),var(--violet));transform:translateZ(40px);box-shadow:0 8px 20px color-mix(in srgb,var(--blue) 40%,transparent)}
+.project-btn.ghost{background:transparent;border:1px solid var(--border);color:var(--muted);padding:12px 17px}
+.project-btn.ghost:hover{color:var(--text);border-color:var(--cyan);box-shadow:none}
+.case{margin-top:20px;border-top:1px solid var(--border);padding-top:14px}
+.case summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:800;letter-spacing:1.2px;color:var(--cyan);text-transform:uppercase}
+.case summary::-webkit-details-marker{display:none}
+.case summary::after{content:"+";font-size:20px;line-height:1;transition:rotate .3s}
+.case[open] summary::after{rotate:45deg}
+.case summary:focus-visible{outline:2px solid var(--cyan);outline-offset:4px;border-radius:6px}
+.case-body{display:grid;gap:14px;margin-top:14px;animation:caseIn .4s ease}
+.project-content .case-body p{margin:0;font-size:13px}
+.case-body b{display:block;color:var(--text);font-size:10px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:3px}
+@keyframes caseIn{from{opacity:0;transform:translateY(-8px)}}
