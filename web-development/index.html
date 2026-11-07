@@ -11,7 +11,7 @@
     <script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(!t)t=matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.dataset.theme=t;var a;try{a=localStorage.getItem("accent")}catch(e){}document.documentElement.dataset.accent=a||"aurora"})()</script>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* two-button project card (Clothing + Orders) */
+        /* two-button project card (main site + staff panel) */
         .project-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}
         .project-actions .project-btn{margin-top:0}
         .project-btn.alt{background:color-mix(in srgb,var(--cyan) 10%,transparent);border:1px solid var(--cyan);color:var(--cyan);padding:12px 17px}
@@ -95,15 +95,18 @@
                 <article class="project-card reveal" data-tilt style="--h:47">
                     <div class="card-inner">
                         <div class="project-image">
-                            <img src="../images/hotel-web.jpg" alt="Hotel website project" loading="lazy" onerror="this.style.display='none'">
+                            <img src="../images/food-web.jpg" alt="Food website project" loading="lazy" onerror="this.style.display='none'">
                             <span class="project-number">01</span>
                             <div class="glare"></div>
                         </div>
                         <div class="project-content">
-                            <span class="project-type">WEB DESIGN / DEVELOPMENT</span>
-                            <h2>Hotel Website</h2>
-                            <p>A modern hotel website designed to present rooms, services and hotel information in a clean and attractive interface.</p>
-                            <a href="https://syedhasanshahqadri-ops.github.io/Hotel-Website/" target="_blank" rel="noopener" class="project-btn magnetic">View Live Website <span>↗</span></a>
+                            <span class="project-type">WEB DESIGN / DEVELOPMENT · 2 PARTS</span>
+                            <h2>Food Website</h2>
+                            <p>A restaurant and food website with a 50-dish digital menu, QR table ordering, home delivery and online payments, plus a staff panel that shows incoming orders live.</p>
+                            <div class="project-actions">
+                                <a href="https://syedhasanshahqadri-ops.github.io/SAFFRON-SMOKE/" target="_blank" rel="noopener" class="project-btn magnetic">View Restaurant <span>↗</span></a>
+                                <a href="https://syedhasanshahqadri-ops.github.io/saffron-smoke-staff/" target="_blank" rel="noopener" class="project-btn alt magnetic">Orders Panel <span>↗</span></a>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -111,15 +114,18 @@
                 <article class="project-card reveal" data-tilt style="--h:94">
                     <div class="card-inner">
                         <div class="project-image">
-                            <img src="../images/food-web.jpg" alt="Food website project" loading="lazy" onerror="this.style.display='none'">
+                            <img src="../images/hotel-web.jpg" alt="Hotel website project" loading="lazy" onerror="this.style.display='none'">
                             <span class="project-number">02</span>
                             <div class="glare"></div>
                         </div>
                         <div class="project-content">
-                            <span class="project-type">WEB DESIGN / DEVELOPMENT</span>
-                            <h2>Food Website</h2>
-                            <p>A food-focused website with an engaging interface designed around food presentation and user-friendly navigation.</p>
-                            <a href="https://syedhasanshahqadri-ops.github.io/FOOD-WEBSITE/" target="_blank" rel="noopener" class="project-btn magnetic">View Live Website <span>↗</span></a>
+                            <span class="project-type">WEB DESIGN / DEVELOPMENT · 2 PARTS</span>
+                            <h2>Hotel Website</h2>
+                            <p>A luxury hotel booking website with 20 rooms priced in PKR, light and dark themes and online payment options, plus a staff panel with live bookings.</p>
+                            <div class="project-actions">
+                                <a href="https://syedhasanshahqadri-ops.github.io/luxestay-hotel/" target="_blank" rel="noopener" class="project-btn magnetic">View Hotel <span>↗</span></a>
+                                <a href="https://syedhasanshahqadri-ops.github.io/luxestay-hotel-staff/" target="_blank" rel="noopener" class="project-btn alt magnetic">Bookings Panel <span>↗</span></a>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -127,15 +133,18 @@
                 <article class="project-card reveal" data-tilt style="--h:141">
                     <div class="card-inner">
                         <div class="project-image">
-                            <img src="../images/ecommerce-web.jpg" alt="E-commerce website project" loading="lazy" onerror="this.style.display='none'">
+                            <img src="../images/gym-web.jpg" alt="Gym website project" loading="lazy" onerror="this.style.display='none'">
                             <span class="project-number">03</span>
                             <div class="glare"></div>
                         </div>
                         <div class="project-content">
-                            <span class="project-type">WEB DESIGN / DEVELOPMENT</span>
-                            <h2>E-Commerce Website</h2>
-                            <p>A modern e-commerce interface focused on product presentation, navigation and a smooth shopping experience.</p>
-                            <a href="https://syedhasanshahqadri-ops.github.io/E-Commerce-Web/" target="_blank" rel="noopener" class="project-btn magnetic">View Live Website <span>↗</span></a>
+                            <span class="project-type">WEB DESIGN / DEVELOPMENT · 2 PARTS</span>
+                            <h2>Gym Website</h2>
+                            <p>A bold fitness website with membership plans in PKR, an exercise library and online joining with payments, plus a staff panel to manage new members.</p>
+                            <div class="project-actions">
+                                <a href="https://syedhasanshahqadri-ops.github.io/ironforge-gym/" target="_blank" rel="noopener" class="project-btn magnetic">View Gym <span>↗</span></a>
+                                <a href="https://syedhasanshahqadri-ops.github.io/ironforge-gym-staff/" target="_blank" rel="noopener" class="project-btn alt magnetic">Members Panel <span>↗</span></a>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -148,10 +157,13 @@
                             <div class="glare"></div>
                         </div>
                         <div class="project-content">
-                            <span class="project-type">WEB DESIGN / JAVASCRIPT</span>
+                            <span class="project-type">WEB DESIGN / JAVASCRIPT · 2 PARTS</span>
                             <h2>Quiz Website</h2>
-                            <p>An interactive quiz website focused on engaging users through questions, interaction and dynamic web functionality.</p>
-                            <a href="https://syedhasanshahqadri-ops.github.io/Quiz-Web/" target="_blank" rel="noopener" class="project-btn magnetic">View Live Website <span>↗</span></a>
+                            <p>A 30-question MCQ test for class 9 and 10 with a timer, a downloadable result card and a results panel where staff see each student's roll number and score.</p>
+                            <div class="project-actions">
+                                <a href="https://syedhasanshahqadri-ops.github.io/Quiz-Web/" target="_blank" rel="noopener" class="project-btn magnetic">Take the Quiz <span>↗</span></a>
+                                <a href="https://syedhasanshahqadri-ops.github.io/quiz-web-staff/" target="_blank" rel="noopener" class="project-btn alt magnetic">Results Panel <span>↗</span></a>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -159,15 +171,18 @@
                 <article class="project-card reveal" data-tilt style="--h:235">
                     <div class="card-inner">
                         <div class="project-image">
-                            <img src="../images/it-company-web.jpg" alt="IT company website project" loading="lazy" onerror="this.style.display='none'">
+                            <img src="../images/ecommerce-web.jpg" alt="E-commerce website project" loading="lazy" onerror="this.style.display='none'">
                             <span class="project-number">05</span>
                             <div class="glare"></div>
                         </div>
                         <div class="project-content">
-                            <span class="project-type">WEB DESIGN / DEVELOPMENT</span>
-                            <h2>IT Company Website</h2>
-                            <p>A professional technology-focused website created to present IT services and digital solutions.</p>
-                            <a href="https://syedhasanshahqadri-ops.github.io/IT-Course-Web/" target="_blank" rel="noopener" class="project-btn magnetic">View Live Website <span>↗</span></a>
+                            <span class="project-type">WEB DESIGN / E-COMMERCE · 2 PARTS</span>
+                            <h2>E-Commerce Website</h2>
+                            <p>Hasan Mart, an online store with 10 categories and 500 products, a cart, and checkout by Easypaisa, JazzCash or cash on delivery, plus a staff panel with live orders.</p>
+                            <div class="project-actions">
+                                <a href="https://syedhasanshahqadri-ops.github.io/HASAN-MART/" target="_blank" rel="noopener" class="project-btn magnetic">View Store <span>↗</span></a>
+                                <a href="https://syedhasanshahqadri-ops.github.io/hasan-mart-staff/" target="_blank" rel="noopener" class="project-btn alt magnetic">Orders Panel <span>↗</span></a>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -175,15 +190,18 @@
                 <article class="project-card reveal" data-tilt style="--h:282">
                     <div class="card-inner">
                         <div class="project-image">
-                            <img src="../images/ai-hub-web.jpg" alt="AI Hub project" loading="lazy" onerror="this.style.display='none'">
+                            <img src="../images/it-company-web.jpg" alt="IT company website project" loading="lazy" onerror="this.style.display='none'">
                             <span class="project-number">06</span>
                             <div class="glare"></div>
                         </div>
                         <div class="project-content">
-                            <span class="project-type">WEB DESIGN / JAVASCRIPT</span>
-                            <h2>AI Hub</h2>
-                            <p>A multilingual AI workspace interface with a clean chat layout, light and dark modes and English, Urdu, Roman Urdu and Hindi options.</p>
-                            <a href="https://syedhasanshahqadri-ops.github.io/ai-hub/" target="_blank" rel="noopener" class="project-btn magnetic">View Live Website <span>↗</span></a>
+                            <span class="project-type">WEB DESIGN / DEVELOPMENT · 2 PARTS</span>
+                            <h2>IT Company Website</h2>
+                            <p>A professional technology academy website with 12 courses and online enrollment with payments, plus an admissions panel where staff review applications and inquiries.</p>
+                            <div class="project-actions">
+                                <a href="https://syedhasanshahqadri-ops.github.io/techsphere-academy/" target="_blank" rel="noopener" class="project-btn magnetic">View Academy <span>↗</span></a>
+                                <a href="https://syedhasanshahqadri-ops.github.io/techsphere-academy-staff/" target="_blank" rel="noopener" class="project-btn alt magnetic">Admissions Panel <span>↗</span></a>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -242,15 +260,15 @@
                 <article class="project-card reveal" data-tilt style="--h:110">
                     <div class="card-inner">
                         <div class="project-image">
-                            <img src="../images/gym-web.jpg" alt="Gym website project" loading="lazy" onerror="this.style.display='none'">
+                            <img src="../images/ai-hub-web.jpg" alt="AI Hub project" loading="lazy" onerror="this.style.display='none'">
                             <span class="project-number">10</span>
                             <div class="glare"></div>
                         </div>
                         <div class="project-content">
-                            <span class="project-type">WEB DESIGN / DEVELOPMENT</span>
-                            <h2>Gym Website</h2>
-                            <p>A premium fitness website with a bold visual style, handy gym tools, an exercise library and dark and light themes.</p>
-                            <a href="https://syedhasanshahqadri-ops.github.io/GYM-WEB/" target="_blank" rel="noopener" class="project-btn magnetic">View Live Website <span>↗</span></a>
+                            <span class="project-type">WEB DESIGN / JAVASCRIPT</span>
+                            <h2>AI Hub</h2>
+                            <p>A multilingual AI workspace interface with a clean chat layout, light and dark modes and English, Urdu, Roman Urdu and Hindi options.</p>
+                            <a href="https://syedhasanshahqadri-ops.github.io/ai-hub/" target="_blank" rel="noopener" class="project-btn magnetic">View Live Website <span>↗</span></a>
                         </div>
                     </div>
                 </article>
