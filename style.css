@@ -116,8 +116,8 @@ nav a:hover{color:var(--text)}nav a:hover::after{transform:scaleX(1)}
 .work-card:hover{border-color:var(--a2);box-shadow:0 0 50px var(--glow),var(--shadow)}
 .work-image{height:330px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--a3),var(--a2))}
 .large-card .work-image{height:480px}
-.work-image img{height:100%;object-fit:cover;scale:1.12;transition:scale .8s}
-.work-card:hover .work-image img{scale:1.22}
+.work-image img{width:100%;height:100%;object-fit:cover;scale:1.04;transition:scale .8s}
+.work-card:hover .work-image img{scale:1.1}
 .image-overlay{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.35);backdrop-filter:blur(3px);opacity:0;transition:opacity .4s}
 .image-overlay span{background:var(--btn);color:var(--btn-text);padding:13px 22px;border-radius:12px;font-size:12px;font-weight:800;translate:0 24px;transition:translate .4s}
 .work-card:hover .image-overlay{opacity:1}
