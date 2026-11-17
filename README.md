@@ -24,6 +24,8 @@ I enjoy transforming ideas into functional, visually appealing, and user-friendl
 - Selected projects and creative work
 - Contact information and professional links
 - Responsive design for different screen sizes
+- Installable as an app (PWA) and fully available offline
+- SHS logo whose two S letters follow the accent colour
 
 ## 🛠️ Technologies
 
@@ -54,3 +56,11 @@ This project is intended to showcase my personal portfolio and creative work. Pl
 **Designed and developed by Syed Hasan Shah.**
 
 *Turning ideas into digital experiences.* FINAL-PORTFOLIO
+
+
+## 📲 Install and offline
+
+- `manifest.webmanifest`, `sw.js`, `pwa.js` and the `icons/` folder make the portfolio installable.
+- On the first visit the service worker saves every page, style, script and image, so the whole site opens without internet.
+- After changing any file, change `VERSION` at the top of `sw.js` (for example `shs-portfolio-v2`) so visitors receive the update.
+- Optional: save the two covers as `images/pizza-web.png` and `images/history-of-islam-web.jpg` so those cards are also stored offline.
