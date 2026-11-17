@@ -1,0 +1,22 @@
+{
+  "name": "Syed Hasan Shah | Developer, Designer, Video Editor",
+  "short_name": "SHS",
+  "description": "Portfolio of Syed Hasan Shah: web development, graphic design and video editing. Works offline.",
+  "id": "./",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#04100f",
+  "theme_color": "#04100f",
+  "categories": ["portfolio", "business", "personalization"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "My Web Development Work", "short_name": "Web Work", "url": "web-development/index.html", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Contact", "short_name": "Contact", "url": "index.html#contact", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
