@@ -219,3 +219,6 @@ footer .logo>span.mark{height:50px;min-width:62px;font-size:20px;border-radius:1
 .dev{display:inline-flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px;color:var(--text);font-size:11px}
 .dev .mark{height:26px;min-width:36px;padding:0 6px;font-size:11px;border-radius:8px;box-shadow:none;animation:none}
 .copyright{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+
+/* game badge */
+.badge.game{background:linear-gradient(120deg,var(--violet),var(--blue))}
