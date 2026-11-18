@@ -119,6 +119,7 @@ cards.forEach(card => {
     const tags = [...card.querySelectorAll(".tags span")].map(t => t.textContent).join(" ");
     card.dataset.cat = /JAVASCRIPT/i.test(type) ? "js" : "web";
     card.dataset.full = card.querySelector(".project-btn.alt") ? "1" : "";
+    card.dataset.game = /GAME/i.test(type) ? "1" : "";
     card.dataset.text = (title + " " + card.querySelector("p").textContent + " " + type + " " + tags).toLowerCase();
     card._title = title;
     const fav = document.createElement("button");
@@ -141,6 +142,7 @@ function matches(c) {
     if (filter === "web" && c.dataset.cat !== "web") return false;
     if (filter === "js" && c.dataset.cat !== "js") return false;
     if (filter === "full" && !c.dataset.full) return false;
+    if (filter === "game" && !c.dataset.game) return false;
     if (filter === "fav" && !favs.includes(c._title)) return false;
     return !query || c.dataset.text.includes(query);
 }
@@ -154,8 +156,8 @@ function applyFilters() {
             if (wasHidden) { c.classList.remove("pop"); void c.offsetWidth; c.classList.add("pop"); }
         }
     });
-    const n = { all: cards.length, web: 0, js: 0, full: 0, fav: 0 };
-    cards.forEach(c => { n[c.dataset.cat]++; if (c.dataset.full) n.full++; if (favs.includes(c._title)) n.fav++; });
+    const n = { all: cards.length, web: 0, js: 0, full: 0, game: 0, fav: 0 };
+    cards.forEach(c => { n[c.dataset.cat]++; if (c.dataset.full) n.full++; if (c.dataset.game) n.game++; if (favs.includes(c._title)) n.fav++; });
     chips.forEach(ch => ch.querySelector("b").textContent = n[ch.dataset.filter]);
     infoEl.textContent = `Showing ${shown} of ${cards.length} projects`;
     emptyEl.hidden = shown > 0;
